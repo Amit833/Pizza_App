@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const env = require("../../config/config");
+const env = require("../config/config");
 
 // JWT Secret to create and validate tokens
 const ourSuperSecretKey = env.jwt_key;

@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const env = require("../../config/config");
+const env = require("../config/config");
 
 /**MONGODB CONNECTION */
 // const strConnLocal = "mongodb://localhost/todos_db"

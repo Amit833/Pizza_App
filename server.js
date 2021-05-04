@@ -11,8 +11,16 @@ const userRouter = require("./routes/userRouter");
 const ejs = require("ejs");
 const expresslayout = require("express-ejs-layouts");
 
+//Assets
+app.use(express.static("public"));
+
 // ENVIRONMENT - CHECK MINIMUM REQUIRED CONFIGURATION FOR STARTUP...
 require("./helpers/env-check"); // this will cancel the startup if necessary env variables are missing...
+
+//set Template engine
+app.use(expresslayout);
+app.set("views", path.join(__dirname, "/resources/views"));
+app.set("view engine", "ejs");
 
 // middlewares
 app.use(express.json());
@@ -30,10 +38,17 @@ app.get("/", (req, res) => {
   res.render("home");
 });
 
-//set Template engine
-app.use(expresslayout);
-app.set("views", path.join(__dirname, "/resources/views"));
-app.set("view engine", "ejs");
+app.get("/cart", (req, res) => {
+  res.render("customers/cart");
+});
+
+app.get("/lin", (req, res) => {
+  res.render("auth/login");
+});
+
+app.get("/regis", (req, res) => {
+  res.render("auth/register");
+});
 
 // connect to MongoDB
 require("./helpers/db-connect");
