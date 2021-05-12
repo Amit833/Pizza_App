@@ -75,7 +75,7 @@ app.use((req, res, next) => {
 //Routes
 
 app.use("/users", userRouter);
-app.use("/home", webRouter);
+app.use("/", webRouter);
 app.use("/cart", cartRouter);
 app.use("/register", authRouter);
 app.use("/orders", orderRouter);
