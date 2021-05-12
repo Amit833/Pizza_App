@@ -8,6 +8,7 @@ const ourSuperSecretKey = env.jwt_key;
 
 const UserSchema = new mongoose.Schema(
   {
+    name: { type: String },
     firstname: { type: String, trim: true },
     lastname: { type: String, trim: true },
     address: { type: String },
@@ -28,7 +29,7 @@ const UserSchema = new mongoose.Schema(
 );
 
 // password hashing
-UserSchema.pre("save", function () {
+UserSchema.pre("save", function() {
   user = this;
   if (this.isModified("password")) {
     user.password = bcryptjs.hashSync(user.password, 10);
@@ -37,7 +38,7 @@ UserSchema.pre("save", function () {
 
 // generate token
 
-UserSchema.methods.generateToken = function () {
+UserSchema.methods.generateToken = function() {
   user = this;
   token = jwt
     .sign({ _id: user._id.toString() }, ourSuperSecretKey, {
@@ -49,7 +50,7 @@ UserSchema.methods.generateToken = function () {
 };
 
 // verify the  token
-UserSchema.statics.findByToken = function (token) {
+UserSchema.statics.findByToken = function(token) {
   const User = this;
 
   // Decode the cookie

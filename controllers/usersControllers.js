@@ -4,6 +4,7 @@ const bcryptjs = require("bcryptjs");
 const { sendVerificationEmail } = require("../mailer/setup");
 
 exports.getUsers = async (req, res, next) => {
+  // res.render("auth/register");
   const users = await User.find().sort({ firstName: 1 });
   res.send(users);
 };

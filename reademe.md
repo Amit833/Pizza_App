@@ -14,3 +14,7 @@ env: env.NODE_ENV || "development",
 // why npm init -y ?
 
 // token only when login. dosen't need when sign up, right?
+
+// MONGO_URI_DEV=mongodb+srv://amitdci:amitdci@cluster0.m0d9h.mongodb.net/MERN_ECOMMERCE?retryWrites=true&w=majority
+
+// MONGO_URI_PROD=mongodb+srv://amitdci:amitdci@cluster0.m0d9h.mongodb.net/MERN_ECOMMERCE?retryWrites=true&w=majority
